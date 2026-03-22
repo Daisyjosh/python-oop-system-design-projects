@@ -1,7 +1,11 @@
-from data.user_data import UserData
 class User:
-    def __init__(self,user_id,user_name,phone_no):
-        self.user_id = user_id
-        self.user_name = user_name
-        self.phone_no = phone_no
+    def __init__(self,id,name,email,phone):
+        self.id = id
+        self.name = name
+        self.email = email
+        self.phone = phone
+
+    def display(self):
+        print(self.id,self.name,self.email,self.phone)
+
     

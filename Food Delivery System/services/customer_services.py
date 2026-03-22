@@ -1,9 +1,7 @@
 class CustomerService:
-    def order_food():
-        try:
-            food = input("What would you like to order ?? ")
-        except ValueError:
-            print("❌ Invalid Input")
-        
-        
+    def __init__(self):
+        self.customers = {}
 
+    def add_customer(self,customer):
+        self.customers[customer.id] = customer
+    

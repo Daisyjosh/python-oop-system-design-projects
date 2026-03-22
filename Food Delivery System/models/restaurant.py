@@ -1,6 +1,11 @@
 class Restaurant:
-    def  __init__(self,res_id,res_name,phone_no):
-        self.res_id = res_id
-        self.res_name = res_name
-        self.phone_no = phone_no
+    def __init__(self,id,name,location,open_time,close_time):
+        self.res_id = id
+        self.name = name
+        self.location = location
+        self.open_time = open_time
+        self.close_time = close_time
+
     
+
+        
