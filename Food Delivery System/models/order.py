@@ -3,4 +3,4 @@ class Order:
         self.order_id = order_id
         self.cart_id = cart_id
         self.dp_id = dp_id
-        self.status = "Placed"
+        self.status = "Delivered"

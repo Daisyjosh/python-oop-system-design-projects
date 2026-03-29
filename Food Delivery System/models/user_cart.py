@@ -1,7 +1,7 @@
 class UserCart:
-    def __init__(self,id,menu_id,cust_id):
-        self.id = id
-        self.menu_id = menu_id
+    def __init__(self,cart_id,cart_items,cust_id):
+        self.cart_id = cart_id
+        self.cart_items = cart_items
         self.cust_id = cust_id
 
     

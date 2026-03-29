@@ -55,7 +55,7 @@ class TravelApp:
 
         try:
             user_id = self.user_service.create_user(
-                User(name, email, password)
+                User(1,name, email, password)
             )
             print(f"User created! ID: {user_id}")
         except:
@@ -120,7 +120,7 @@ class TravelApp:
             return
 
         itin_id = self.itinerary_service.create_itinerary(
-            Itinerary(self.current_user[0], title)
+            Itinerary(self.current_user.id, title)
         )
         print(f"Created ID: {itin_id}")
 
@@ -131,6 +131,7 @@ class TravelApp:
             desc = input("Desc: ").strip()
             date = input("Date (YYYY-MM-DD): ").strip()
             time = input("Time: ").strip()
+            cost = float(input("Estimated Cost: "))
 
             datetime.strptime(date, "%Y-%m-%d")
 
@@ -139,11 +140,11 @@ class TravelApp:
                 return
 
             self.itinerary_service.add_item(
-                Item(itin_id, name, desc, date, time)
+                Item(itin_id, name, desc, date, time,cost)
             )
             print("Added")
-        except:
-            print("Invalid data")
+        except Exception as e:
+            print("Invalid data",e)
 
     def create_booking(self):
         try:
@@ -157,7 +158,7 @@ class TravelApp:
                 return
 
             self.booking_service.create_booking(
-                Booking(self.current_user[0], b_type, details, date, cost)
+                Booking(self.current_user.id, b_type, details, date, cost)
             )
             print("Booked")
         except:
@@ -194,7 +195,7 @@ class TravelApp:
         print(f"Total: {total if total else 0}")
 
     def view_itineraries(self):
-        data = self.itinerary_service.get_user_itineraries(self.current_user[0])
+        data = self.itinerary_service.get_user_itineraries(self.current_user.id)
         print("\n--- Itineraries ---")
         if data:
             for d in data:

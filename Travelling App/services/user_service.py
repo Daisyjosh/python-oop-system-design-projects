@@ -19,7 +19,7 @@ class UserService:
         data = self.db.cursor.fetchone()
 
         if data:
-            return User(data[1], data[2], data[3])
+            return User(data[0], data[1], data[2],data[3])
         return None
         
     def login_user(self, email, password):
@@ -30,5 +30,5 @@ class UserService:
         data = self.db.cursor.fetchone()
 
         if data:
-            return User(data[1], data[2], data[3])  # name, email, password
+            return User(data[0], data[1], data[2], data[3])  
         return None
